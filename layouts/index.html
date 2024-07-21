@@ -7,7 +7,7 @@
           initial-scale=1.0" />
     <title>{{ .Title }}</title>
     <link rel="icon" href="favicon.svg" />
-    {{ partial "gallerydeluxe/head.html" . }}
+    {{ partial "partials/head.html" . }}
     {{ partial "head.html" . }}
   </head>
 
@@ -20,7 +20,7 @@
   */}}
   {{ $bundle := site.GetPage "images" }}
   {{ $images := $bundle.Resources.ByType "image" }}
-  {{ $gallery := partial "gallerydeluxe/init.html" (dict "sourcePath" "images") }}
+  {{ $gallery := partial "gallerydeluxe/init.html" (dict "images" $images) }}
   {{ $params := site.Params.gallerydeluxe }}
   {{/* We currently only support 1 gallery per page, which is create4 by an element with id 'gallerydeluxe',
     and a valid data url.
